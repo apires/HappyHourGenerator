@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+var Server = require('../src/server'),
+	routes = require('../src/routes'),
+	storage = require('../src/db'),
+	program = require('commander');
+
+program
+	.version('0.1')
+	.option('-p, --port', 'Server port', Number)
+	.option('-db, --database','Database File', String, './santa.db')
+	.parse(process.argv);
+
+var options = {};
+if (program.port) options.port = program.port;
+
+var s = new Server(options);
+
+routes(s.newRoute('/')); // Attach root route handler.
+
+storage.init(s.start.bind(s));
