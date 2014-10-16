@@ -2,7 +2,7 @@ var request = require('request'),
 	log = require('npmlog');
 
 
-var API_KEY = process['TASTEMADE_API_KEY'];
+var API_KEY = process.env['TASTEMADE_API_KEY'];
 
 var API = function(){
 	this.baseUrl = 'https://api.tmade.co/v1';
