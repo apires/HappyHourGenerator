@@ -16,6 +16,6 @@ if (program.port) options.port = program.port;
 
 var s = new Server(options);
 
-routes(s.newRoute('/')); // Attach root route handler.
+routes(s.newRoute('/api')); // Attach api route handler.
 
 storage.init(s.start.bind(s));

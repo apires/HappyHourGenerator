@@ -1,0 +1,96 @@
+{ "user" : {
+	"_id": "d38ece91-0691-4002-a002-f39631671a79",
+	"_isFollowing": true,
+	"_url": "https://api.tmade.co/v1/users/joe",
+	"_webUrl": "https://www.tmade.co/@joe",
+	"about": "Tastemade Founder. All day grazer, pancake lover. Founder of The Daily Plate - Helping you eat smarter",
+	"avatar": {
+		"original": "https://s3.amazonaws.com/com.tastemade.uploads-dev/60/c7/60c7ab70c1b011e39cdff9c43bd7f700/avatar.jpg",
+		"url": "https://api.tmade.co/v1/users/joe/avatar"
+	},
+	"homeLocation": {
+		"_id": "a5a71652-b92b-11e3-8a65-b7df72ef4b1c",
+		"_webUrl": "https://www.tmade.co/locations/park-city",
+		"_isFollowing": false,
+		"cityName": "Park City",
+		"slug": "park-city",
+		"name": "Park City, UT",
+		"public": true,
+		"coordinate": [
+			-111.49797,
+			40.64606
+		],
+		"countryCode": "US",
+		"stats": {
+			"followers": 3
+		},
+		"thumbnail": {
+			"url": "https://api.tmade.co/v1/locations/park-city/thumbnail"
+		}
+	},
+	"name": "Joe Perez",
+	"username": "joe",
+	"editorial": {
+		"flags": [
+			"Internal"
+		]
+	},
+	"createdAt": "2013-05-02T23:25:40.326Z",
+	"stats": {
+		"likingClass": 0,
+		"likingVideo": 2892,
+		"followingVenue": 0,
+		"followingLocation": 0,
+		"followingTag": 0,
+		"followingUser": 0,
+		"followingList": 0,
+		"followers": 535,
+		"following": 0,
+		"liking": 2892,
+		"episodes": 75,
+		"comments": 2736
+	},
+	"labs": {
+		"videoLoops": true,
+		"menuAnimations": false
+	},
+	"tags": [
+		{
+			"_id": "29190ca3-be77-11e3-90c3-29e460efa653",
+			"_url": "https://api.tmade.co/v1/tags/bacon",
+			"_webUrl": "https://www.tmade.co/tags/bacon",
+			"slug": "bacon",
+			"stats": {
+				"followers": 0
+			},
+			"thumbnail": {
+				"url": "https://api.tmade.co/v1/tags/bacon/thumbnail"
+			},
+			"_isFollowing": true
+		}
+	],
+	"_videosUrl": "https://api.tmade.co/v1/users/764fc276-b5ea-11e3-bb5a-9598ba865114/videos",
+	"_listsUrl": "https://api.tmade.co/v1/users/764fc276-b5ea-11e3-bb5a-9598ba865114/lists",
+	"_likingUrl": "https://api.tmade.co/v1/users/764fc276-b5ea-11e3-bb5a-9598ba865114/liking",
+	"_postsUrl": "https://api.tmade.co/v1/users/764fc276-b5ea-11e3-bb5a-9598ba865114/posts",
+	"_followingUrl": "https://api.tmade.co/v1/users/764fc276-b5ea-11e3-bb5a-9598ba865114/following",
+	"_followersUrl": "https://api.tmade.co/v1/users/764fc276-b5ea-11e3-bb5a-9598ba865114/followers",
+	"_objectionsUrl": "https://api.tmade.co/v1/users/764fc276-b5ea-11e3-bb5a-9598ba865114/objections",
+	"_tagsUrl": "https://api.tmade.co/v1/users/764fc276-b5ea-11e3-bb5a-9598ba865114/tags",
+	"auth": {
+		"isAdmin": true,
+		"token": "00285ab0-851c-11e3-8c38-b3e7a61be792"
+	},
+	"email": "sample@tastemade.com",
+	"facebook": {
+		"id": "531808553"
+	},
+	"preferences": {
+		"pushComments": "from_anyone",
+		"pushLikes": "from_anyone",
+		"pushNewContacts": "none",
+		"pushNewEpisodes": "from_followed",
+		"emailOnFollow": true,
+		"emailOnNewComment": true
+	}
+}}

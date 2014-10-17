@@ -1,0 +1,58 @@
+html(ng-app="hh")
+    head
+        link(href='http://fonts.googleapis.com/css?family=Pacifico', rel='stylesheet')
+        link(href='http://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet')
+
+        link(rel="stylesheet", href="./css/bootstrap.css")
+        link(rel="stylesheet", href="./css/hh.css")
+
+        script(src="./js/angular.js")
+        title HappyHour Scheduler
+
+    body(ng-controller='ctrl')
+        .bg
+            h1.title Happy Hour Oracle
+            .fg
+                .container
+                    .row(ng-show='step==0').pushdown
+                        .col-md-10
+                            h2 Here's a sugestion for your next happy hour..
+                    .row(ng-show='step==0')
+                        .col-md-offset-4.col-md-6
+                            h4 First log in with your Tastemade credentials:
+                    .row(ng-show='step==0')
+                        .col-md-offset-5.col-md-3
+                            form(name="signin" ng-submit='login()')
+                                div.form-group
+                                    label Username
+                                        input.form-control(ng-model='user')='{{user}}'
+                                div.form-group
+                                    label Password
+                                        input.form-control(ng-model='password')='{{password}}'
+                                div.form-group
+                                    input.btn.btn-primary(type='submit')
+
+                    .row(ng-show='step==1 && authResponse')
+                        .row
+                            h3 Hello {{authResponse.name}}!
+                            h6(ng-show='hh') How's {{hh._meta.city}} btw?
+                        .row
+                            .col-md-offset-3.col-md-6(ng-show='!hh')
+                                div.loader
+                        .row
+                            .col-md-offset-3.col-md-6(ng-show='hh')
+                                h4 How about checking out the happy hour at {{hh._meta.name}}?
+                                h4 Where?
+                                h5 {{ hh._meta.address }}, {{ hh._meta.postalCode }}
+                                h4 When?
+                                h5 {{ hh.when.iso | date: 'MM/dd' }}
+                                h4 It's happening in {{hh.when.nice}} ! There are {{hh.confirmed}} confirmed atendees.
+                                button.btn.btn-primary(ng-click='confirmPresence()')="Confirm"
+                                button.btn.btn-default(ng-click='cancelPresence()')="Cancel"
+
+                        .row
+                            .col-md-offset-3.col-md-6(ng-show='hh')
+
+
+
+    script(src="./js/hh.js")

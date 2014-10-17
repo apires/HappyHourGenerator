@@ -1,8 +1,10 @@
 var request = require('request'),
-	log = require('npmlog');
+	log = require('npmlog'),
+	mocks = require('./mocks.json');
 
 
 var API_KEY = process.env['TASTEMADE_API_KEY'];
+
 
 var API = function(){
 	this.baseUrl = 'https://api.tmade.co/v1';
@@ -16,6 +18,19 @@ API.prototype.getUser = function(userName, done){
 
 		done(null, data);
 	});
+};
+
+API.prototype.auth = function(user, pass, done){
+	var url = this.baseUrl+'/auth/login';
+
+	done(null, mocks.user);
+
+//	this.request('POST', url, {username: user, password: pass}, function(err, status, data){
+//		if(err || status != 200) { return done(err || status);}
+//
+//		done(null, data);
+//	});
+
 };
 
 API.prototype.getAllVenues = function(done){
@@ -68,13 +83,11 @@ API.prototype.getVenuesAroundLocation = function(locationID, done){
 	});
 }
 
-API.prototype.request = function(method, url, body, cb, opt){
+API.prototype.request = function(method, url, json, cb, opt){
 	var options = opt || {};
 	options.url = url;
 	options.method = method;
-	if(body) options.body = body;
-
-
+	if(json) options.json = json;
 
 	options.headers = {
 		'X-Api-Key': API_KEY,
@@ -88,7 +101,8 @@ API.prototype.request = function(method, url, body, cb, opt){
 			return
 		}
 
-		cb(null, rsp.statusCode, JSON.parse(body));
+		if(options.json) cb(null, rsp.statusCode, body);
+		else cb(null, rsp.statusCode, JSON.parse(body));
 	})
 };
 

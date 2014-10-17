@@ -140,5 +140,19 @@ hh.getHighestWishedLocation = function(lat, long, done){
 };
 
 hh.confirmPresence = function(happyHourID, userID, done){
-	db.run('insert into confirmations(happyHourId, userId) values(?,?)', [happyHourID, userID], 'err-confirming-presence', done);
-}
+	db.run('insert into confirmations(happyHourId, userId) values(?,?)', [happyHourID, userID], 'err-confirming-presence', function(err){
+		if(err && err.message.indexOf('UNIQUE constraint failed') !== -1){
+			done();
+			return
+		}
+		if(err) { done(err); return }
+		done();
+	});
+};
+
+hh.cancelPresence = function(happyHourID, userID, done){
+	db.run('delete from confirmations where happyHourId=? and userId=?', [happyHourID, userID], 'err-confirming-presence',  function(err){
+		if(err) { done(err); return }
+		done();
+	});
+};

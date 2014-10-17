@@ -1,6 +1,6 @@
 var log = require('npmlog');
 
-var done = function(status, rsp, req, res){
+var done = function(status, rsp, req, res, next){
 	res.status(status);
 
 	if(status >= 500){

@@ -13,11 +13,11 @@ User.prototype.create = function(uid, done){
 		if(err) { done(err); return }
 		if(user.length) { done(null, user); return }
 
-		TM.getUser(function(err, data){
+		TM.getUser(uid, function(err, data){
 			if(err == '404'){ done('user-does-not-exist'); return}
 			if(err) { done(err); return }
 
-			db.run('insert into users(foreign_id, name) values (?, ?)', [data._id, data.name], 'user-create', function(err){
+			db.run('insert into users(foreignId, name) values (?, ?)', [data._id, data.name], 'user-create', function(err){
 				if(err) { done(err); return}
 				done(null, {
 					id: this.lastId,

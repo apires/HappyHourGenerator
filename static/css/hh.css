@@ -1,0 +1,31 @@
+body{
+    background-color: paleturquoise;
+}
+
+h3, h2{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.bg{
+    min-height: 100%;
+}
+
+h1.title{
+    font-family: 'Pacifico', cursive;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-bottom: 7%;
+    font-size: 6em;
+}
+
+.pushdown {
+    margin-bottom: 45px;
+}
+
+.fg {
+    background-color: antiquewhite;
+    min-height: 70%;
+}
+.center {
+    margin-bottom: 400px;
+}​

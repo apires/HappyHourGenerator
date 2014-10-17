@@ -36,3 +36,21 @@ HHAPI.confirmPresence = function(req, res, next){
 		hlp.done(204, null, res, res);
 	});
 };
+
+HHAPI.cancelPresence = function(req, res, next){
+	var uid = req.params.uid,
+		happyHourID = req.params.hhid;
+
+	services.hh.cancelPresence(uid, happyHourID, function(err){
+		if(err) {
+			if(err instanceof Error && err.message.indexOf('FOREIGN KEY') !== -1 ){
+				hlp.done(400, {err: 'invalid user id or event id'}, req, res);
+			} else {
+				hlp.done(500, err, req, res);
+			}
+			return
+		}
+		hlp.done(204, null, res, res);
+	});
+};
+

@@ -8,4 +8,8 @@ module.exports = function(app){
 
 	app.get('/v1/hh', api.hh.getOrCreate);
 	app.put('/v1/hh/:hhid/confirmation/:uid', api.hh.confirmPresence);
+	app.delete('/v1/hh/:hhid/confirmation/:uid', api.hh.cancelPresence);
+
+
+	app.post('/v1/auth', api.auth.authenticate);
 };

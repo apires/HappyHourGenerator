@@ -13,6 +13,7 @@ var SantaServer = function(options){
 
 	this.server.use(bodyParser.json());
 	this.server.use(morgan('combined'));
+	this.server.use(express.static(__dirname+"/../static"))
 };
 
 SantaServer.prototype.newRoute = function(prefix){
